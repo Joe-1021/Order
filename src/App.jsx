@@ -184,43 +184,44 @@ function Cart ({cartData,updateCartData,deleteCartData,total,setMessage,deleteAl
 function Order({order}){
   return(
     <div>
+     
       {order.length?(
-        <div>
+        <div> 
           {order.map((order)=>{
             return(
-              <div className="card my-2" key={order.id}>
-                <div className="card-body">
-                  <div className="card-title">
-                    <h5>訂單編號 {order.id}</h5>
-                    <div>備註: <span>{order.message? order.message:'無'}</span></div>
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">品項</th>
-                          <th scope="col">單價</th>
-                          <th scope="col">數量</th>
-                          <th scope="col">小計</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {order.cartData.map((i)=>{
-                          return(
-                            <tr key={i.id}>
-                              <td>{i.name}</td>
-                              <td>{i.price}</td>
-                              <td>{i.qty}</td>
-                              <td>{i.price * i.qty}</td>
-                            </tr>
-                          )
-                        })}
-                      </tbody>
-                    </table>
-                    <div className="text-end">
-                      <h5>總計: <span>${order.total}</span></h5>
+                  <div className="card my-2" key={order.id}>
+                  <div className="card-body">
+                    <div className="card-title">
+                      <h5>訂單編號 {order.id}</h5>
+                      <div>備註: <span>{order.message? order.message:'無'}</span></div>
+                      <table className="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">品項</th>
+                            <th scope="col">單價</th>
+                            <th scope="col">數量</th>
+                            <th scope="col">小計</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {order.cartData.map((i)=>{
+                            return(
+                              <tr key={i.id}>
+                                <td>{i.name}</td>
+                                <td>{i.price}</td>
+                                <td>{i.qty}</td>
+                                <td>{i.price * i.qty}</td>
+                              </tr>
+                            )
+                          })}
+                        </tbody>
+                      </table>
+                      <div className="text-end">
+                        <h5>總計: <span>${order.total}</span></h5>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                  </div> 
             )
           })}
         </div> 
@@ -304,10 +305,10 @@ useEffect(()=>{
             <hr />
             <div className="row justify-content-center">
               <div className="col-16 col-md-8">
-                <div className="scroll">
-                  <Order order={order}/>
+              <h2>訂單列表</h2>
+                <div className='scroll'>
+                    <Order order={order}/>
                 </div>
-                
               </div>
             </div>
           </div>
